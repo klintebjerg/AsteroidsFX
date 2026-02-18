@@ -16,5 +16,43 @@ public class Entity implements Serializable {
         return ID.toString();
     }
 
-    public void setPolygonCoordinates(double)
+    public void setPolygonCoordinates(float... coordinates){
+        this.polygonCoordinates = coordinates;
+    }
+
+    public float[] getPolygonCoordinates() {
+        return polygonCoordinates;
+    }
+
+    public void setX(float x){
+        this.x = x;
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public void setY(float y){
+        this.y = y;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public void setRotation(float rotation) {
+        this.rotation = rotation;
+    }
+
+    public float getRotation() {
+        return rotation;
+    }
+
+    public void setRadius(float r) {
+        this.radius = r;
+    }
+
+    public float getRadius () {
+        return radius;
+    }
 }

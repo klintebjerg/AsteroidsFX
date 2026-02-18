@@ -1,8 +1,12 @@
 package dk.sdu.cbse;
 
+import dk.sdu.cbse.common.data.GameData;
+import dk.sdu.cbse.common.data.World;
+
 public class App {
-    public static void main (String[] args){
-        System.out.println("Hello world");
+    public void create() {
+        GameData gameData = new GameData();
+        World world = new World();
     }
 }
 
