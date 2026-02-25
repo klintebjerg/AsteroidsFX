@@ -6,45 +6,45 @@ import java.util.UUID;
 public class Entity implements Serializable {
 
     private final UUID ID = UUID.randomUUID();
-    private float[] polygonCoordinates;
-    private float x;
-    private float y;
-    private float rotation;
+    private double[] polygonCoordinates;
+    private double x;
+    private double y;
+    private double rotation;
     private float radius;
 
     public String getID() {
         return ID.toString();
     }
 
-    public void setPolygonCoordinates(float... coordinates){
+    public void setPolygonCoordinates(double... coordinates){
         this.polygonCoordinates = coordinates;
     }
 
-    public float[] getPolygonCoordinates() {
+    public double[] getPolygonCoordinates() {
         return polygonCoordinates;
     }
 
-    public void setX(float x){
+    public void setX(double x){
         this.x = x;
     }
 
-    public float getX() {
+    public double getX() {
         return x;
     }
 
-    public void setY(float y){
+    public void setY(double y){
         this.y = y;
     }
 
-    public float getY() {
+    public double getY() {
         return y;
     }
 
-    public void setRotation(float rotation) {
+    public void setRotation(double rotation) {
         this.rotation = rotation;
     }
 
-    public float getRotation() {
+    public double getRotation() {
         return rotation;
     }
 
