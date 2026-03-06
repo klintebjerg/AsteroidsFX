@@ -8,6 +8,7 @@ import java.util.Map;
  */
 public abstract class BaseEntity {
 
+    private boolean isAlive = true;
     private final Map<Class<? extends BaseComponent>, BaseComponent> componentMap = new HashMap<>();
 
     /**
@@ -31,5 +32,13 @@ public abstract class BaseEntity {
         if(!componentType.isAssignableFrom(component.getClass())) return null;
 
         return componentType.cast(component);
+    }
+
+    /**
+     * Tells the entity if it is alive or not.
+     * @param alive boolean indicating alive status.
+     */
+    public void setAlive(boolean alive) {
+        isAlive = alive;
     }
 }
