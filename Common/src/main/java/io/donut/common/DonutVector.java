@@ -28,6 +28,19 @@ public class DonutVector extends Raylib.Vector2 {
     }
 
     /**
+     * Creates a 2D vector with a given heading and magnitude.
+     * @param angleDegrees the heading in degrees.
+     * @param mag the mangitude.
+     * @return the 2D vector with the given heading and magnitude.
+     */
+    public static DonutVector fromAngleWithMag(float angleDegrees, float mag){
+        return new DonutVector(
+                (float) Math.cos(Math.toRadians(angleDegrees))*mag,
+                (float) Math.sin(Math.toRadians(angleDegrees))*mag
+        );
+    }
+
+    /**
      * Add the components of the other vector.
      * @param other the other vector to add.
      */
@@ -46,7 +59,8 @@ public class DonutVector extends Raylib.Vector2 {
     }
 
     /**
-     * Multiplies the vector by a value. AKA scale.
+     * Multiplies the vector by a value.
+     * Equivalent to {@link DonutVector#scale(float)}.
      * @param multiplicator the value multiply the vector with.
      */
     public void mult(float multiplicator){
@@ -55,12 +69,20 @@ public class DonutVector extends Raylib.Vector2 {
     }
 
     /**
+     * Scales the vector by the factor.
+     * Equivalent to {@link DonutVector#mult(float)}.
+     * @param factor the scale-factor.
+     */
+    public void scale(float factor){
+        mult(factor);
+    }
+
+    /**
      * Divides the vector by a value.
      * @param divisor the value to divide the vector with.
      */
     public void div(float divisor){
-        super.x(super.x()/divisor);
-        super.y(super.y()/divisor);
+        mult(1/divisor);
     }
 
     /**
@@ -76,7 +98,17 @@ public class DonutVector extends Raylib.Vector2 {
      * @return the magnitude of the vector.
      */
     public float mag(){
-        return (float)Math.sqrt(super.x()*super.x()+super.y()*super.y());
+        return (float)Math.sqrt(magSq());
+    }
+
+    /**
+     * Calculates the length of the vector.
+     * <br>
+     * Equivalent to {@link DonutVector#mag()}.
+     * @return the magnitude of the vector.
+     */
+    public float length(){
+        return mag();
     }
 
     /**
