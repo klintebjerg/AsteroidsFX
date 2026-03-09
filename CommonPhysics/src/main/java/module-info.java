@@ -1,0 +1,3 @@
+module CommonPhysics {
+    requires Common;
+}

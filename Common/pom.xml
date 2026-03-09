@@ -18,6 +18,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>uk.co.electronstudio.jaylib</groupId>
+            <artifactId>jaylib</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <resources>
             <resource>

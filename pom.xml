@@ -11,6 +11,9 @@
     <modules>
         <module>Core</module>
         <module>Common</module>
+        <module>CommonPhysics</module>
+        <module>CommonPlayer</module>
+        <module>CommonCrop</module>
     </modules>
 
     <properties>
@@ -145,6 +148,11 @@
                 <groupId>uk.co.electronstudio.jaylib</groupId>
                 <artifactId>jaylib</artifactId>
                 <version>[5.5.0,5.6)</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.11.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

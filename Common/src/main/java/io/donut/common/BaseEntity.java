@@ -2,18 +2,28 @@ package io.donut.common;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * The BaseEntity class that every entity must derive from.
  */
 public abstract class BaseEntity {
-
     private boolean isAlive = true;
 
     /// Map from the class of a component to the instance of the component.
     /// <br>
     /// This ensures each entity only can have one of each type of component.
     private final Map<Class<? extends BaseComponent>, BaseComponent> componentMap = new HashMap<>();
+
+    // Is this a good idea? Maybe not, but it allows systems to access the component map directly if needed.
+    // public Map<Class<? extends BaseComponent>, BaseComponent> getComponentMap() {
+    //     return componentMap;
+    //}
+
+    public void removeNullComponents() {
+        componentMap.values().removeIf(Objects::isNull);
+    }
+
 
     /**
      * Add a component to the entity if a component of the same type is not already present.
@@ -22,7 +32,7 @@ public abstract class BaseEntity {
      */
     public <T extends BaseComponent> boolean addComponent(T component) {
         // only add if not already present, never overwrite
-        return componentMap.putIfAbsent(component.getClass(), component) != null;
+        return componentMap.putIfAbsent(component.getClass(), component) == null;
     }
 
     /**
@@ -51,7 +61,7 @@ public abstract class BaseEntity {
      * @return true if the entity has a component of type, otherwise false
      */
     public <T extends BaseComponent> boolean hasComponent(Class<T> componentType){
-        return componentMap.containsKey(componentType);
+        return getComponent(componentType) != null;
     }
 
     /**
