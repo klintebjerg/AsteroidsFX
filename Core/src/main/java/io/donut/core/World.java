@@ -18,6 +18,7 @@ public class World implements IWorld{
                         .thenComparing(system -> system.getClass().getName());
 
         systems = new TreeSet<>(systemComparator);
+        eventBus = new EventBus();
     }
 
     /**

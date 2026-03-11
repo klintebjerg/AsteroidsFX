@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.donut</groupId>
-    <artifactId>DonutFarmer</artifactId>
+    <artifactId>AsteroidsJaylib</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
@@ -51,6 +51,8 @@
                     <executable>java</executable>
                     <workingDirectory>.</workingDirectory>
                     <arguments>
+                        <argument>-XstartOnFirstThread</argument>
+                        <argument>--enable-native-access=ALL-UNNAMED</argument>
                         <argument>--module-path=mods-mvn</argument>
                         <argument>--class-path=libs/*</argument>
                         <argument>--module=Core/io.donut.core.Main</argument>
@@ -148,11 +150,6 @@
                 <groupId>uk.co.electronstudio.jaylib</groupId>
                 <artifactId>jaylib</artifactId>
                 <version>[5.5.0,5.6)</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.code.gson</groupId>
-                <artifactId>gson</artifactId>
-                <version>2.11.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
