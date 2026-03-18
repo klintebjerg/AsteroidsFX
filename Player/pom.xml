@@ -9,20 +9,32 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>io.asteroids.commonphysics</groupId>
-    <artifactId>CommonPhysics</artifactId>
+    <artifactId>Player</artifactId>
 
     <properties>
         <maven.compiler.source>25</maven.compiler.source>
         <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>io.asteroids.common</groupId>
             <artifactId>Common</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.asteroids.commonphysics</groupId>
+            <artifactId>CommonPhysics</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.asteroids.commonrender</groupId>
+            <artifactId>CommonRender</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
+
 </project>

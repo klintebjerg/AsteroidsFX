@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.donut</groupId>
+    <groupId>io.asteroids</groupId>
     <artifactId>AsteroidsJaylib</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -13,12 +13,13 @@
         <module>Common</module>
         <module>CommonPhysics</module>
         <module>CommonPlayer</module>
-        <module>CommonCrop</module>
+        <module>Player</module>
+        <module>CommonRender</module>
     </modules>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -55,7 +56,7 @@
                         <argument>--enable-native-access=ALL-UNNAMED</argument>
                         <argument>--module-path=mods-mvn</argument>
                         <argument>--class-path=libs/*</argument>
-                        <argument>--module=Core/io.donut.core.Main</argument>
+                        <argument>--module=Core/io.asteroids.core.Main</argument>
                     </arguments>
                 </configuration>
             </plugin>

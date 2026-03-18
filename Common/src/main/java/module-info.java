@@ -1,4 +1,4 @@
 module Common {
     requires jaylib;
-    exports io.donut.common;
+    exports io.asteroids.common;
 }

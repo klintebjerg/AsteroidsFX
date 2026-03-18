@@ -1,3 +1,0 @@
-module CommonCrop {
-    requires Common;
-}
