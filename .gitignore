@@ -1,3 +1,4 @@
 /.idea/
 /mods-mvn/
 target/
+*.md
