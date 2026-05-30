@@ -9,8 +9,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>io.asteroids.commonphysics</groupId>
-    <artifactId>CommonPhysics</artifactId>
+    <artifactId>Asteroid</artifactId>
+    <groupId>io.asteroids.asteroid</groupId>
 
     <properties>
         <maven.compiler.source>25</maven.compiler.source>
@@ -25,9 +25,25 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
+            <groupId>io.asteroids.commonphysics</groupId>
+            <artifactId>CommonPhysics</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>io.asteroids.commonplayer</groupId>
+            <artifactId>CommonPlayer</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>io.asteroids.commonrender</groupId>
+            <artifactId>CommonRender</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
+
 </project>

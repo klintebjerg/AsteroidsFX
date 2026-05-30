@@ -15,12 +15,17 @@
         <module>CommonPlayer</module>
         <module>Player</module>
         <module>CommonRender</module>
+        <module>Weapon</module>
+        <module>Asteroid</module>
+        <module>Enemy</module>
     </modules>
 
     <properties>
         <maven.compiler.source>25</maven.compiler.source>
         <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.version>5.10.2</junit.version>
+        <mockito.version>5.11.0</mockito.version>
     </properties>
 
     <build>
@@ -34,6 +39,13 @@
                 <version>3.10.1</version>
                 <configuration>
                     <fork>true</fork>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <useModulePath>false</useModulePath>
                 </configuration>
             </plugin>
             <!-- execute the resulting project -->
@@ -55,6 +67,7 @@
                         <argument>-XstartOnFirstThread</argument>
                         <argument>--enable-native-access=ALL-UNNAMED</argument>
                         <argument>--module-path=mods-mvn</argument>
+                        <argument>--add-modules=ALL-MODULE-PATH</argument>
                         <argument>--class-path=libs/*</argument>
                         <argument>--module=Core/io.asteroids.core.Main</argument>
                     </arguments>
@@ -151,6 +164,18 @@
                 <groupId>uk.co.electronstudio.jaylib</groupId>
                 <artifactId>jaylib</artifactId>
                 <version>[5.5.0,5.6)</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

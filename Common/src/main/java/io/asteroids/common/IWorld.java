@@ -3,7 +3,7 @@ package io.asteroids.common;
 import java.util.List;
 
 public interface IWorld {
-    <T extends BaseComponent> List<BaseEntity> getEntitiesWith(T componentType);
+    <T extends BaseComponent> List<BaseEntity> getEntitiesWith(Class<T> componentClass);
 
     <T extends BaseSystem> void addSystem(T system);
 
@@ -16,4 +16,8 @@ public interface IWorld {
     IEventBus getEventBus();
 
     void removeNullEntities();
+
+    void addScore(int points);
+
+    int getScore();
 }

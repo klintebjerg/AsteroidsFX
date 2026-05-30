@@ -72,6 +72,10 @@ public abstract class BaseEntity {
         return true;
     }
 
+    public boolean isAlive() {
+        return isAlive;
+    }
+
     /**
      * Tells the entity if it is alive or not.
      * @param alive boolean indicating alive status.
