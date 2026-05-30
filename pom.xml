@@ -18,6 +18,8 @@
         <module>Weapon</module>
         <module>Asteroid</module>
         <module>Enemy</module>
+        <module>Scoring</module>
+        <module>ScoringService</module>
     </modules>
 
     <properties>

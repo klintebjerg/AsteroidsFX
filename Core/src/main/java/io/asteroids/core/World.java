@@ -117,6 +117,7 @@ public class World implements IWorld{
     @Override
     public void addScore(int points) {
         score += points;
+        if (eventBus != null) eventBus.publish(new ScoreAddedEvent(points));
     }
 
     @Override
