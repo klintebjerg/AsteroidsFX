@@ -34,6 +34,11 @@
             <groupId>uk.co.electronstudio.jaylib</groupId>
             <artifactId>jaylib</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>6.1.14</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -48,7 +53,7 @@
                 <version>3.3.0</version>
                 <executions>
                     <execution>
-                        <id>copy-dependencies</id>
+                        <id>copy-jaylib</id>
                         <phase>package</phase>
                         <goals>
                             <goal>copy-dependencies</goal>
@@ -56,6 +61,18 @@
                         <configuration>
                             <includeArtifactIds>jaylib</includeArtifactIds>
                             <outputDirectory>../mods-mvn</outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-spring</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includeGroupIds>org.springframework,io.micrometer,aopalliance,jakarta.annotation</includeGroupIds>
+                            <outputDirectory>../mods-mvn</outputDirectory>
+                            <includeScope>compile</includeScope>
                         </configuration>
                     </execution>
                 </executions>

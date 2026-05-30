@@ -7,7 +7,9 @@ import io.asteroids.common.IWorld;
 import io.asteroids.commonphysics.AngleComponent;
 import io.asteroids.commonphysics.PositionComponent;
 import io.asteroids.commonphysics.VelocityComponent;
+import io.asteroids.commonplayer.PlayerComponent;
 import io.asteroids.commonrender.PolygonComponent;
+import static com.raylib.Colors.WHITE;
 
 public class PlayerEntity extends BaseEntity implements IEntitySPI {
 
@@ -18,7 +20,7 @@ public class PlayerEntity extends BaseEntity implements IEntitySPI {
 
     public PlayerEntity() {
         PositionComponent positionComponent = new PositionComponent();
-        positionComponent.pos = new AsteroidsVector(0,0);
+        positionComponent.pos = new AsteroidsVector(400, 300);
         this.addComponent(positionComponent);
 
         VelocityComponent velocityComponent = new VelocityComponent();
@@ -31,7 +33,10 @@ public class PlayerEntity extends BaseEntity implements IEntitySPI {
 
         PolygonComponent polygonComponent = new PolygonComponent();
         polygonComponent.coordinates = new float[]{ 20,0, -10,-12, -10,12 };
+        polygonComponent.fillColor = WHITE;
         this.addComponent(polygonComponent);
+
+        this.addComponent(new PlayerComponent());
     }
 
     @Override

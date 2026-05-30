@@ -6,8 +6,11 @@ import io.asteroids.player.PlayerMovementSystem;
 module Player {
     requires Common;
     requires CommonPhysics;
+    requires CommonPlayer;
     requires jaylib;
     requires CommonRender;
+
+    exports io.asteroids.plugin;
 
     provides IEntitySPI with PlayerEntity;
     provides ISystemSPI with PlayerMovementSystem;

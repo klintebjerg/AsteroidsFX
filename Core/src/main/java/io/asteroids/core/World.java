@@ -7,6 +7,7 @@ public class World implements IWorld{
     List<BaseEntity> entities;
     transient Set<BaseSystem> systems;
     transient IEventBus eventBus;
+    private int score = 0;
     /**
      * The world constructor. It constructs the world
      */
@@ -33,10 +34,14 @@ public class World implements IWorld{
      * @param componentType the componentType that entities must include.
      * @return a list of entities which all have the componentType.
      */
-    public <T extends BaseComponent> List<BaseEntity> getEntitiesWith(T componentType) {
-        Set<BaseComponent> components = new HashSet<>();
-
-        return entities;
+    public <T extends BaseComponent> List<BaseEntity> getEntitiesWith(Class<T> componentClass) {
+        List<BaseEntity> result = new ArrayList<>();
+        for (BaseEntity entity : entities) {
+            if (entity.isAlive() && entity.hasComponent(componentClass)) {
+                result.add(entity);
+            }
+        }
+        return result;
     }
 
     /**
@@ -72,6 +77,7 @@ public class World implements IWorld{
         for(BaseSystem system : systems) {
             runSystem(system, dt);
         }
+        entities.removeIf(e -> !e.isAlive());
     }
 
     private void runSystem(BaseSystem system, float deltaTime) {
@@ -106,5 +112,16 @@ public class World implements IWorld{
      */
     public IEventBus getEventBus() {
         return eventBus;
+    }
+
+    @Override
+    public void addScore(int points) {
+        score += points;
+        if (eventBus != null) eventBus.publish(new ScoreAddedEvent(points));
+    }
+
+    @Override
+    public int getScore() {
+        return score;
     }
 }
